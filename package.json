@@ -1,0 +1,24 @@
+{
+  "name": "trabalho-lp1-gustavo-gouveia-fernando-vilhegas",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gouveia31/TRABALHO-LP1-GUSTAVO-GOUVEIA-FERNANDO-VILHEGAS.git"
+  },
+  "author": "Gustavo Gouveia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gouveia31/TRABALHO-LP1-GUSTAVO-GOUVEIA-FERNANDO-VILHEGAS/issues"
+  },
+  "homepage": "https://github.com/Gouveia31/TRABALHO-LP1-GUSTAVO-GOUVEIA-FERNANDO-VILHEGAS#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
