@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Gouveia31/TRABALHO-LP1-GUSTAVO-GOUVEIA-FERNANDO-VILHEGAS#readme",
   "description": "",
   "dependencies": {
+    "bootstrap": "^5.3.6",
     "express": "^5.1.0"
   }
 }
