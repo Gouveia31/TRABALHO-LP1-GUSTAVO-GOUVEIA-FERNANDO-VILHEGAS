@@ -39,11 +39,17 @@
                 <input type="number" class="form-control" id="quantidade" required>
                 <div class="invalid-feedback">Informe a quantidade.</div>
             </div>
+            <div class="col-md-6">
+                <label for="imagem" class="form-label">Imagem do Produto</label>
+                <input type="file" class="form-control" id="imagem" accept="image/*" required>
+                <div class="invalid-feedback">Escolha uma imagem.</div>
+            </div>
             <div class="col-12 text-center">
                 <button class="btn btn-primary" type="submit">Cadastrar Produto</button>
                 <a href="../../index.html" class="btn btn-secondary">Voltar</a>
             </div>
         </form>
+
         <div id="tabela" class="mt-4"></div>
     </div>
 </body>

@@ -1,9 +1,9 @@
-const urlBase = 'http://localhost:4000/produto'; // URL base do endpoint para produtos
+const urlBase = 'http://localhost:4000/produto'; 
 
 const formulario = document.getElementById("formCadProduto");
 let listaDeProdutos = [];
 
-// Se já existir uma lista de produtos no localStorage, carrega ela
+
 if (localStorage.getItem("produtos")) {
     listaDeProdutos = JSON.parse(localStorage.getItem("produtos"));
 }
@@ -11,25 +11,38 @@ if (localStorage.getItem("produtos")) {
 formulario.onsubmit = manipularSubmissao;
 
 function manipularSubmissao(evento) {
-    if (formulario.checkValidity()) {
-        // Coleta os valores dos campos do formulário
-        const codigo = document.getElementById("codigo").value;
-        const nome = document.getElementById("nome").value;
-        const categoria = document.getElementById("categoria").value;
-        const preco = parseFloat(document.getElementById("preco").value);
-        const quantidade = parseInt(document.getElementById("quantidade").value);
-
-        const produto = { codigo, nome, categoria, preco, quantidade };
-
-        cadastrarProduto(produto);
-        formulario.reset();
-        mostrarTabelaProdutos();
-    } else {
-        formulario.classList.add('was-validated');
-    }
     evento.preventDefault();
     evento.stopPropagation();
+
+    if (!formulario.checkValidity()) {
+        formulario.classList.add('was-validated');
+        return;
+    }
+
+    const codigo = document.getElementById("codigo").value;
+    const nome = document.getElementById("nome").value;
+    const categoria = document.getElementById("categoria").value;
+    const preco = parseFloat(document.getElementById("preco").value);
+    const quantidade = parseInt(document.getElementById("quantidade").value);
+    const imagemInput = document.getElementById("imagem");
+    const imagemArquivo = imagemInput.files[0];
+
+    if (imagemArquivo) {
+        const leitor = new FileReader();
+        leitor.onload = function (e) {
+            const imagemBase64 = e.target.result;
+
+            const produto = { codigo, nome, categoria, preco, quantidade, imagem: imagemBase64 };
+            cadastrarProduto(produto);
+            formulario.reset();
+            formulario.classList.remove('was-validated');
+        };
+        leitor.readAsDataURL(imagemArquivo);
+    } else {
+        alert("Por favor, selecione uma imagem.");
+    }
 }
+
 
 function mostrarTabelaProdutos() {
     const divTabela = document.getElementById("tabela");
@@ -51,6 +64,7 @@ function mostrarTabelaProdutos() {
                 <th>Categoria</th>
                 <th>Preço (R$)</th>
                 <th>Quantidade</th>
+                <th>Imagem</th>
                 <th>Ações</th>
             </tr>
         `;
@@ -65,7 +79,8 @@ function mostrarTabelaProdutos() {
                 <td>${listaDeProdutos[i].categoria}</td>
                 <td>${listaDeProdutos[i].preco.toFixed(2)}</td>
                 <td>${listaDeProdutos[i].quantidade}</td>
-                <td><button type="button" class="btn btn-danger" onclick="excluirProduto('${listaDeProdutos[i].id}')"><i class="bi bi-trash"></i>Excluir</button></td>
+                <td><img src="${listaDeProdutos[i].imagem}" style="max-width: 80px;"></td>
+                <td><button type="button" class="btn btn-danger" onclick="excluirProduto('${listaDeProdutos[i].id}')">Excluir</button></td>
             `;
             corpo.appendChild(linha);
         }
@@ -74,6 +89,7 @@ function mostrarTabelaProdutos() {
         divTabela.appendChild(tabela);
     }
 }
+
 
 function excluirProduto(id) {
     if (confirm("Deseja realmente excluir o produto " + id + "?")) {
