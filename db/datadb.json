@@ -17,16 +17,6 @@
       "cidade": "Presidente Prudente",
       "uf": "SP",
       "cep": "19030120"
-    },
-    {
-      "id": "f665",
-      "cpf": "502.623.418-67",
-      "nome": "fernando",
-      "telefone": "18996645806",
-      "cidade": "Presidente Prudente",
-      "uf": "SP",
-      "cep": "19065-765"
     }
-  ],
-  "produtos": []
+  ]
 }
