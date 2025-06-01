@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de Categorias</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="alert alert-info text-center mt-5">
+            <h1>Cadastro de Categorias</h1>
+        </div>
+
+        <form id="formCadCategoria" class="row g-3 border p-3" novalidate>
+            <div class="col-md-6">
+                <label for="nomeCategoria" class="form-label">Nome da Categoria</label>
+                <input type="text" class="form-control" id="nomeCategoria" required />
+                <div class="invalid-feedback">Informe o nome da categoria.</div>
+            </div>
+            <div class="col-md-6 text-end align-self-end">
+                <button type="submit" class="btn btn-primary">Cadastrar Categoria</button>
+                <a href="../../index.html" class="btn btn-secondary">Voltar</a>
+            </div>
+        </form>
+
+        <div id="tabelaCategoria" class="mt-4"></div>
+    </div>
+
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/scriptCategoria.js"></script>
+</body>
+
+</html>

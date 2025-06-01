@@ -1,9 +1,8 @@
-const urlBase = 'http://localhost:4000/produto'; // URL base do endpoint para produtos
+const urlBase = 'http://localhost:4000/produto';
 
 const formulario = document.getElementById("formCadProduto");
 let listaDeProdutos = [];
 
-// Se já existir uma lista de produtos no localStorage, carrega ela
 if (localStorage.getItem("produtos")) {
     listaDeProdutos = JSON.parse(localStorage.getItem("produtos"));
 }
@@ -11,15 +10,32 @@ if (localStorage.getItem("produtos")) {
 formulario.onsubmit = manipularSubmissao;
 
 function manipularSubmissao(evento) {
+    const categorias = JSON.parse(localStorage.getItem("categorias") || "[]");
+
+    if (categorias.length === 0) {
+        alert("Você precisa cadastrar pelo menos uma categoria antes de cadastrar produtos.");
+        evento.preventDefault();
+        evento.stopPropagation();
+        return;
+    }
+
+    const categoriaSelecionada = document.getElementById("categoria").value.trim();
+
+    if (!categorias.includes(categoriaSelecionada)) {
+        alert("A categoria selecionada não está cadastrada. Por favor, selecione uma categoria válida.");
+        evento.preventDefault();
+        evento.stopPropagation();
+        return;
+    }
+
     if (formulario.checkValidity()) {
-        // Coleta os valores dos campos do formulário
         const codigo = document.getElementById("codigo").value;
         const nome = document.getElementById("nome").value;
-        const categoria = document.getElementById("categoria").value;
         const preco = parseFloat(document.getElementById("preco").value);
         const quantidade = parseInt(document.getElementById("quantidade").value);
+        const imagem = document.getElementById("imagem").value;
 
-        const produto = { codigo, nome, categoria, preco, quantidade };
+        const produto = { codigo, nome, categoria: categoriaSelecionada, preco, quantidade, imagem };
 
         cadastrarProduto(produto);
         formulario.reset();
@@ -27,6 +43,7 @@ function manipularSubmissao(evento) {
     } else {
         formulario.classList.add('was-validated');
     }
+
     evento.preventDefault();
     evento.stopPropagation();
 }
@@ -51,6 +68,7 @@ function mostrarTabelaProdutos() {
                 <th>Categoria</th>
                 <th>Preço (R$)</th>
                 <th>Quantidade</th>
+                <th>Imagem</th>
                 <th>Ações</th>
             </tr>
         `;
@@ -65,7 +83,8 @@ function mostrarTabelaProdutos() {
                 <td>${listaDeProdutos[i].categoria}</td>
                 <td>${listaDeProdutos[i].preco.toFixed(2)}</td>
                 <td>${listaDeProdutos[i].quantidade}</td>
-                <td><button type="button" class="btn btn-danger" onclick="excluirProduto('${listaDeProdutos[i].id}')"><i class="bi bi-trash"></i>Excluir</button></td>
+                <td><img src="${listaDeProdutos[i].imagem}" style="max-width: 80px;"></td>
+                <td><button type="button" class="btn btn-danger" onclick="excluirProduto('${listaDeProdutos[i].id}')">Excluir</button></td>
             `;
             corpo.appendChild(linha);
         }
@@ -136,4 +155,18 @@ function cadastrarProduto(produto) {
     });
 }
 
-obterDadosProdutos(); 
+function preencherSelectCategorias() {
+    const select = document.getElementById("categoria");
+    const categorias = JSON.parse(localStorage.getItem("categorias") || "[]");
+
+    select.innerHTML = '<option value="">Selecione uma categoria</option>';
+    categorias.forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        select.appendChild(opt);
+    });
+}
+
+obterDadosProdutos();
+preencherSelectCategorias();

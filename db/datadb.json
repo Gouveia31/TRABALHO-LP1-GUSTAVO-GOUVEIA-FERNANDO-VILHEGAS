@@ -18,5 +18,58 @@
       "uf": "SP",
       "cep": "19030120"
     }
+  ],
+  "fornecedor": [
+    {
+      "id": "3749",
+      "cnpj": "123455",
+      "nome": "Esta Bem",
+      "uf": "AC",
+      "cep": "123123123"
+    }
+  ],
+  "produto": [
+    {
+      "id": "8063",
+      "codigo": "100",
+      "nome": "iphone",
+      "categoria": "eletronico",
+      "preco": 2000,
+      "quantidade": 753
+    },
+    {
+      "id": "b506",
+      "codigo": "753",
+      "nome": "ffgyrkf",
+      "categoria": "wezsgdxrt",
+      "preco": 8436,
+      "quantidade": 866
+    },
+    {
+      "id": "bc8a",
+      "codigo": "500",
+      "nome": "seffqwfag",
+      "categoria": "afezsgw",
+      "preco": 6583,
+      "quantidade": 7427
+    }
+  ],
+  "entregador": [
+    {
+      "id": "acf8",
+      "nome": "Sergio",
+      "cpf": "10920081878",
+      "veiculo": "Moto"
+    }
+  ],
+  "categoria": [
+    {
+      "id": "837f",
+      "nome": "eletronico"
+    },
+    {
+      "id": "71f3",
+      "nome": "produto"
+    }
   ]
-} 
+}
