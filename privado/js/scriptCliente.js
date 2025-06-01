@@ -1,5 +1,5 @@
 
-const urlBase = 'http://localhost:4000/clientes';
+const urlBase = 'http://localhost:4000/cliente';
 
 const formulario = document.getElementById("formCadCliente");
 let listaDeClientes = [];

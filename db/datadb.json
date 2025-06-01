@@ -1,6 +1,6 @@
 {
-    "cliente": [
-        {
+  "cliente": [
+    {
       "id": "1",
       "cpf": "111.111.111-11",
       "nome": "João Carlos Gouveia",
@@ -8,6 +8,15 @@
       "cidade": "Presidente Prudente",
       "uf": "SP",
       "cep": "19015-010"
+    },
+    {
+      "id": "4b10",
+      "cpf": "550.799.288-67",
+      "nome": "Gustavo Gouveia Da Silva",
+      "telefone": "18988006529",
+      "cidade": "Presidente Prudente",
+      "uf": "SP",
+      "cep": "19030120"
     }
-    ]
+  ]
 }
