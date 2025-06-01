@@ -18,5 +18,24 @@
       "uf": "SP",
       "cep": "19030120"
     }
+  ],
+  "fornecedor": [
+    {
+      "id": "3749",
+      "cnpj": "123455",
+      "nome": "Esta Bem",
+      "uf": "AC",
+      "cep": "123123123"
+    }
+  ],
+  "produto": [
+    {
+      "id": "33b2",
+      "codigo": "31",
+      "nome": "Mouse",
+      "categoria": "Eletronicos",
+      "preco": 31,
+      "quantidade": 2
+    }
   ]
 }
