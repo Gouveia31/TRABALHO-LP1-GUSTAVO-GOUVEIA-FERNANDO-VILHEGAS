@@ -1,9 +1,13 @@
 {
-    "produto": [
+    "cliente": [
         {
-            "id": 1,
-            "nome": "mouse"
-            
-        }
+      "id": "1",
+      "cpf": "111.111.111-11",
+      "nome": "João Carlos Gouveia",
+      "telefone": "(18)9111-1111",
+      "cidade": "Presidente Prudente",
+      "uf": "SP",
+      "cep": "19015-010"
+    }
     ]
 }
