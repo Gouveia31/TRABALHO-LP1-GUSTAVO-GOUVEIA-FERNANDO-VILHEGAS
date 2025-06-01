@@ -17,6 +17,16 @@
       "cidade": "Presidente Prudente",
       "uf": "SP",
       "cep": "19030120"
+    },
+    {
+      "id": "db3b",
+      "cpf": "10920081878",
+      "nome": "Fernando Vilhegas",
+      "telefone": "18988242881",
+      "cidade": "Presidente Prudente",
+      "uf": "AL",
+      "cep": "1234567"
     }
-  ]
+  ],
+  "fornecedor": []
 }
