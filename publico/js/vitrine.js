@@ -5,7 +5,7 @@ function carregarVitrine() {
     fetch(urlBase)
         .then(res => res.json())
         .then(produtos => {
-            console.log(produtos); // Para depuração
+            console.log(produtos); 
             if (produtos.length === 0) {
                 divVitrine.innerHTML = `<p class="alert alert-info text-center">Nenhum produto disponível na vitrine.</p>`;
                 return;
@@ -17,8 +17,8 @@ function carregarVitrine() {
                 const card = document.createElement('div');
                 card.className = 'card';
 
-                // Corrigido o caminho da imagem
-                const caminhoImagem = `http://localhost:4000/img/${produto.imagem}`;
+              
+                const caminhoImagem = produto.imagem;
 
                 card.innerHTML = `
                     <img src="${caminhoImagem}" class="card-img-top" alt="${produto.nome}">
@@ -39,6 +39,7 @@ function carregarVitrine() {
             divVitrine.innerHTML = `<p class="alert alert-danger text-center">Erro ao carregar a vitrine: ${erro}</p>`;
         });
 }
+
 
 function comprarProduto(id) {
     alert(`Produto ${id} comprado!`);
