@@ -1,63 +1,63 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+    <!DOCTYPE html>
+    <html lang="pt-br">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Produtos</title>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cadastro de Produtos</title>
+        <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+    </head>
 
-<body>
-    <div class="container">
-        <div class="alert alert-secondary text-center mt-5">
-            <h1>Cadastro de Produtos</h1>
-        </div> 
-        <form id="formCadProduto" class="row g-3 needs-validation border m-1 p-2" novalidate>
-            <div class="col-md-4">
-                <label for="codigo" class="form-label">Código do Produto</label>
-                <input type="text" class="form-control" id="codigo" required>
-                <div class="invalid-feedback">Informe o código do produto.</div>
-            </div>
-            <div class="col-md-4">
-                <label for="nome" class="form-label">Nome</label>
-                <input type="text" class="form-control" id="nome" required>
-                <div class="invalid-feedback">Informe o nome do produto.</div>
-            </div>
-            <div class="col-md-4">
-            <label for="categoria" class="form-label">Categoria</label>
-            <select id="categoria" class="form-select" required>
-                <option value="">Selecione uma categoria</option>
-            </select>
-            <div class="invalid-feedback">Escolha uma categoria válida.</div>
-            </div>
+    <body>
+        <div class="container">
+            <div class="alert alert-secondary text-center mt-5">
+                <h1>Cadastro de Produtos</h1>
+            </div> 
+            <form id="formCadProduto" class="row g-3 needs-validation border m-1 p-2" novalidate>
+                <div class="col-md-4">
+                    <label for="codigo" class="form-label">Código do Produto</label>
+                    <input type="text" class="form-control" id="codigo" required>
+                    <div class="invalid-feedback">Informe o código do produto.</div>
+                </div>
+                <div class="col-md-4">
+                    <label for="nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" id="nome" required>
+                    <div class="invalid-feedback">Informe o nome do produto.</div>
+                </div>
+                <div class="col-md-4">
+                <label for="categoria" class="form-label">Categoria</label>
+                <select id="categoria" class="form-select" required>
+                    <option value="">Selecione uma categoria</option>
+                </select>
+                <div class="invalid-feedback">Escolha uma categoria válida.</div>
+                </div>
 
-            <div class="col-md-3">
-                <label for="preco" class="form-label">Preço (R$)</label>
-                <input type="number" class="form-control" id="preco" step="0.01" required>
-                <div class="invalid-feedback">Informe o preço.</div>
-            </div>
-            <div class="col-md-3">
-                <label for="quantidade" class="form-label">Quantidade</label>
-                <input type="number" class="form-control" id="quantidade" required>
-                <div class="invalid-feedback">Informe a quantidade.</div>
-            </div>
-            <div class="col-md-6">
-                <label for="imagem" class="form-label">Imagem do Produto</label>
-                <input type="file" class="form-control" id="imagem" accept="image/*" required>
-                <div class="invalid-feedback">Escolha uma imagem.</div>
-            </div>
-            <div class="col-12 text-center">
-                <button class="btn btn-primary" type="submit">Cadastrar Produto</button>
-                <a href="../../index.html" class="btn btn-secondary">Voltar</a>
-            </div>
-        </form>
+                <div class="col-md-3">
+                    <label for="preco" class="form-label">Preço (R$)</label>
+                    <input type="number" class="form-control" id="preco" step="0.01" required>
+                    <div class="invalid-feedback">Informe o preço.</div>
+                </div>
+                <div class="col-md-3">
+                    <label for="quantidade" class="form-label">Quantidade</label>
+                    <input type="number" class="form-control" id="quantidade" required>
+                    <div class="invalid-feedback">Informe a quantidade.</div>
+                </div>
+                <div class="col-md-6">
+                    <label for="imagem" class="form-label">Imagem do Produto</label>
+                    <input type="file" class="form-control" id="imagem" accept="image/*" required>
+                    <div class="invalid-feedback">Escolha uma imagem.</div>
+                </div>
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary" type="submit">Cadastrar Produto</button>
+                    <a href="../../index.html" class="btn btn-secondary">Voltar</a>
+                </div>
+            </form>
 
-        <div id="tabela" class="mt-4"></div>
-    </div>
-</body>
+            <div id="tabela" class="mt-4"></div>
+        </div>
+    </body>
 
-<script src='/js/bootstrap.bundle.min.js'></script>
-<script src="/js/scriptProduto.js"></script>
+    <script src='/js/bootstrap.bundle.min.js'></script>
+    <script src="/js/scriptProduto.js"></script>
 
-</html>
+    </html>
