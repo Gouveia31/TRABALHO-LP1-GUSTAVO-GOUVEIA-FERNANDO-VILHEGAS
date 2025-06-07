@@ -10,17 +10,18 @@
 
 <body>
     <div class="container">
-        <div class="alert alert-info text-center mt-5">
+        <div class="alert alert-secondary text-center mt-5">
             <h1>Cadastro de Categorias</h1>
         </div>
 
-        <form id="formCadCategoria" class="row g-3 border p-3" novalidate>
+        <form id="formCadCategoria" class="row g-3 needs-validation border m-1 p-2" novalidate>
             <div class="col-md-6">
                 <label for="nomeCategoria" class="form-label">Nome da Categoria</label>
                 <input type="text" class="form-control" id="nomeCategoria" required />
                 <div class="invalid-feedback">Informe o nome da categoria.</div>
             </div>
-            <div class="col-md-6 text-end align-self-end">
+
+            <div class="col-12 text-center">
                 <button type="submit" class="btn btn-primary">Cadastrar Categoria</button>
                 <a href="../../index.html" class="btn btn-secondary">Voltar</a>
             </div>
