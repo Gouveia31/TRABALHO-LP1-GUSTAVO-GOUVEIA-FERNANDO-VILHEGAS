@@ -1,29 +1,8 @@
 {
   "cliente": [],
-  "fornecedor": [
-    {
-      "id": "3749",
-      "cnpj": "123455",
-      "nome": "Esta Bem",
-      "uf": "AC",
-      "cep": "123123123"
-    }
-  ],
+  "fornecedor": [],
   "produto": [],
-  "entregador": [
-    {
-      "id": "acf8",
-      "nome": "Sergio",
-      "cpf": "10920081878",
-      "veiculo": "Moto"
-    },
-    {
-      "id": "a7bb",
-      "nome": "Ronaldo",
-      "cpf": "053.337.248-81",
-      "veiculo": "carro"
-    }
-  ],
+  "entregador": [],
   "categoria": [
     {
       "id": "837f",
@@ -37,11 +16,13 @@
   "usuario": [
     {
       "usuario": "Gustavo",
-      "senha": "12345"
+      "senha": "12345",
+      "id": "2e75"
     },
     {
       "usuario": "Fernando",
-      "senha": "nando"
+      "senha": "nando",
+      "id": "8d2e"
     }
   ]
 }

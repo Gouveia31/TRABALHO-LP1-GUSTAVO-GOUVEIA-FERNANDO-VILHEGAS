@@ -51,7 +51,7 @@ function mostrarTabelaEntregadores() {
                         <td>${ent.cpf}</td>
                         <td>${ent.veiculo}</td>
                         <td>
-                            <button class="btn btn-danger" onclick="excluirEntregador(${ent.id})">Excluir</button>
+                            <button class="btn btn-danger" onclick="excluirEntregador('${ent.id}')">Excluir</button>
                         </td>
                     </tr>
                 `).join("")}

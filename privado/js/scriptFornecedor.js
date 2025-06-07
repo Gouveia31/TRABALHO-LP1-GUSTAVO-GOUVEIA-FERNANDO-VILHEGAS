@@ -1,8 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const urlBase = 'http://localhost:4000/fornecedor';
+const urlBase = 'http://localhost:4000/fornecedor';
+let listaDeFornecedores = [];
 
+document.addEventListener("DOMContentLoaded", () => {
   const formulario = document.getElementById("formCadFornecedor");
-  let listaDeFornecedores = [];
 
   formulario.onsubmit = manipularSubmissao;
 
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       for (let i = 0; i < listaDeFornecedores.length; i++) {
         const linha = document.createElement("tr");
-        linha.id = listaDeFornecedores[i].id;
+        linha.id = `forn-${listaDeFornecedores[i].id}`; // corrigido com prefixo
         linha.innerHTML = `
           <td>${listaDeFornecedores[i].cnpj}</td>
           <td>${listaDeFornecedores[i].nome}</td>
@@ -73,24 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function excluirFornecedor(id) {
-    if (confirm("Deseja realmente excluir o fornecedor?")) {
-      fetch(`${urlBase}/${id}`, {
-        method: "DELETE"
-      })
-        .then(res => res.ok && res.json())
-        .then(() => {
-          listaDeFornecedores = listaDeFornecedores.filter(f => f.id !== id);
-          document.getElementById(id)?.remove();
-          alert("Fornecedor excluído!");
-        })
-        .catch(erro => alert("Erro ao excluir fornecedor: " + erro));
-    }
-  }
-
   function obterDadosFornecedores() {
     fetch(urlBase)
-      .then(res => res.ok && res.json())
+      .then(res => res.json())
       .then(fornecedores => {
         listaDeFornecedores = fornecedores;
         mostrarTabelaFornecedores();
@@ -106,7 +91,7 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       body: JSON.stringify(fornecedor)
     })
-      .then(res => res.ok && res.json())
+      .then(res => res.json())
       .then(dados => {
         alert(`Fornecedor cadastrado com sucesso! ID: ${dados.id}`);
         listaDeFornecedores.push(dados);
@@ -117,3 +102,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   obterDadosFornecedores();
 });
+
+
+function excluirFornecedor(id) {
+  if (confirm("Deseja realmente excluir o fornecedor?")) {
+    fetch(`${urlBase}/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        listaDeFornecedores = listaDeFornecedores.filter(f => f.id !== id);
+        document.getElementById(`forn-${id}`)?.remove();
+        alert("Fornecedor excluído!");
+      })
+      .catch(erro => alert("Erro ao excluir fornecedor: " + erro));
+  }
+}
