@@ -10,12 +10,13 @@ if (localStorage.getItem("produtos")) {
 formulario.onsubmit = manipularSubmissao;
 
 function manipularSubmissao(evento) {
+    evento.preventDefault();
+    evento.stopPropagation();
+
     const categorias = JSON.parse(localStorage.getItem("categorias") || "[]");
 
     if (categorias.length === 0) {
         alert("Você precisa cadastrar pelo menos uma categoria antes de cadastrar produtos.");
-        evento.preventDefault();
-        evento.stopPropagation();
         return;
     }
 
@@ -23,30 +24,48 @@ function manipularSubmissao(evento) {
 
     if (!categorias.includes(categoriaSelecionada)) {
         alert("A categoria selecionada não está cadastrada. Por favor, selecione uma categoria válida.");
-        evento.preventDefault();
-        evento.stopPropagation();
         return;
     }
 
-    if (formulario.checkValidity()) {
-        const codigo = document.getElementById("codigo").value;
-        const nome = document.getElementById("nome").value;
-        const preco = parseFloat(document.getElementById("preco").value);
-        const quantidade = parseInt(document.getElementById("quantidade").value);
-        const imagem = document.getElementById("imagem").value;
+    if (!formulario.checkValidity()) {
+        formulario.classList.add('was-validated');
+        return;
+    }
 
-        const produto = { codigo, nome, categoria: categoriaSelecionada, preco, quantidade, imagem };
+    const codigo = document.getElementById("codigo").value;
+    const nome = document.getElementById("nome").value;
+    const preco = parseFloat(document.getElementById("preco").value);
+    const quantidade = parseInt(document.getElementById("quantidade").value);
+    const inputImagem = document.getElementById("imagem");
+    const arquivoImagem = inputImagem.files[0];
+
+    if (!arquivoImagem) {
+        alert("Por favor, selecione uma imagem válida.");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const imagemBase64 = e.target.result;
+
+        const produto = {
+            codigo,
+            nome,
+            categoria: categoriaSelecionada,
+            preco,
+            quantidade,
+            imagem: imagemBase64
+        };
 
         cadastrarProduto(produto);
         formulario.reset();
         mostrarTabelaProdutos();
-    } else {
-        formulario.classList.add('was-validated');
-    }
+    };
 
-    evento.preventDefault();
-    evento.stopPropagation();
+    reader.readAsDataURL(arquivoImagem); // Converte para base64
 }
+
 
 function mostrarTabelaProdutos() {
     const divTabela = document.getElementById("tabela");
