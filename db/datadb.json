@@ -77,5 +77,15 @@
       "id": "71f3",
       "nome": "produto"
     }
+  ],
+  "usuario": [
+    {
+      "usuario": "Gustavo",
+      "senha": "12345"
+    },
+    {
+      "usuario": "Fernando",
+      "senha": "nando"
+    }
   ]
 }

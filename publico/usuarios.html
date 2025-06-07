@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Usuário</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login.css"/>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2 class="text-center text-dark mt-5">Criar conta</h2>
+            <div class="text-center mb-5 text-dark">Preencha os dados</div>
+            <div class="card my-5">
+                <form action="/cadastro" method="POST" class="card-body cardbody-color p-lg-5" id="formCadastro">
+                    <div class="text-center">
+                        <img src="./imagem/tom.png" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                             width="200px" alt="profile">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuário" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    <div class="mb-3">
+                        <input type="password" class="form-control" id="confirmarSenha" placeholder="Confirmar senha" required>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-color px-5 mb-5 w-100">Cadastrar</button>
+                    </div>
+                    <div class="text-center">
+                        <a href="/login.html">Já tenho conta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("formCadastro").addEventListener("submit", function(e) {
+        const senha = document.getElementById("senha").value;
+        const confirmar = document.getElementById("confirmarSenha").value;
+
+        if (senha !== confirmar) {
+            e.preventDefault();
+            alert("As senhas não são igauis!");
+        }
+    });
+</script>
+</body>
+</html>
