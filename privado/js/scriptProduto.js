@@ -63,7 +63,7 @@ function manipularSubmissao(evento) {
         mostrarTabelaProdutos();
     };
 
-    reader.readAsDataURL(arquivoImagem); // Converte para base64
+    reader.readAsDataURL(arquivoImagem); 
 }
 
 

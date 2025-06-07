@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       for (let i = 0; i < listaDeFornecedores.length; i++) {
         const linha = document.createElement("tr");
-        linha.id = `forn-${listaDeFornecedores[i].id}`; // corrigido com prefixo
+        linha.id = `forn-${listaDeFornecedores[i].id}`; 
         linha.innerHTML = `
           <td>${listaDeFornecedores[i].cnpj}</td>
           <td>${listaDeFornecedores[i].nome}</td>
